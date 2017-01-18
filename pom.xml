@@ -4,6 +4,7 @@
     <groupId>org.nljug.jcp</groupId>
     <artifactId>jsr375</artifactId>
     <version>LOCAL</version>
+    <packaging>war</packaging>
 
     <repositories>
         <repository>
@@ -31,5 +32,25 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <defaultGoal>verify</defaultGoal>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <!-- Java EE 7 doesn't require web.xml, Maven needs to catch up! -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
