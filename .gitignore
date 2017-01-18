@@ -117,3 +117,5 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+.idea/
+*.iml
