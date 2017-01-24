@@ -1,4 +1,4 @@
-package nl.nljug.jcp.jsr375.web;
+package org.nljug.jcp.jsr375.web;
  
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -1,4 +1,4 @@
-package nl.nljug.jcp.jsr375.core;
+package org.nljug.jcp.jsr375.core;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
