@@ -1,0 +1,12 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+            <groupId>org.nljug.jcp.jsr375</groupId>
+            <artifactId>parent</artifactId>
+            <version>LOCAL</version>
+        </parent>
+
+    <artifactId>custom-authentication</artifactId>
+    <packaging>war</packaging>
+
+</project>
