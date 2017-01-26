@@ -1,7 +1,5 @@
 package org.nljug.jcp.jsr375.authentication;
 
-import javax.ejb.Stateless;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.security.CallerPrincipal;
 import javax.security.identitystore.CredentialValidationResult;
@@ -19,7 +17,7 @@ import static javax.security.identitystore.CredentialValidationResult.NOT_VALIDA
  *
  * @Credential. This example presents an hard coded example for the caller 'admin' with its too obvious password.
  */
-@ApplicationScoped
+@RequestScoped
 public class CustomIdentityStore implements IdentityStore {
 
     private static final String CALLER = "admin";
@@ -30,12 +28,14 @@ public class CustomIdentityStore implements IdentityStore {
     public CredentialValidationResult validate(Credential credential) {
         if (credential != null && credential instanceof UsernamePasswordCredential) {
             return validateCredential((UsernamePasswordCredential) credential);
-        } return NOT_VALIDATED_RESULT;
+        }
+        return NOT_VALIDATED_RESULT;
     }
 
     private CredentialValidationResult validateCredential(UsernamePasswordCredential credential) {
         if (credential.getCaller().equals(CALLER) && credential.getPasswordAsString().equals(CALLER)) {
             return new CredentialValidationResult(new CallerPrincipal(credential.getCaller()), ROLES);
-        } return INVALID_RESULT;
+        }
+        return INVALID_RESULT;
     }
 }
