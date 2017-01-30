@@ -1,6 +1,5 @@
 package org.nljug.jcp.jsr375.rest;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.security.authentication.mechanism.http.annotation.BasicAuthenticationMechanismDefinition;
 import javax.security.identitystore.annotation.Credentials;
 import javax.security.identitystore.annotation.EmbeddedIdentityStoreDefinition;
