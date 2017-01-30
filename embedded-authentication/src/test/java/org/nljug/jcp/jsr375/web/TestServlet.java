@@ -15,6 +15,7 @@ import static org.nljug.jcp.jsr375.web.TestServlet.URL;
 
 @DeclareRoles({ "role1", "role2" })
 @WebServlet(URL)
+@ServletSecurity(@HttpConstraint(rolesAllowed = "role1"))
 public class TestServlet extends HttpServlet {
 
     public static final String URL = "/test";
