@@ -7,6 +7,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.net.PasswordAuthentication;
 import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
@@ -35,10 +36,8 @@ public class EndpointIT {
 
     @Test
     public void should_access_endpoint() throws Exception {
-        URL testPath = new URL(base.toExternalForm() + REST_ROOT.substring(1) + URL + "?username=admin&password=admin");
-        int statusCode = getResponseCode(testPath, "GET");
+        URL testPath = new URL(base.toExternalForm() + REST_ROOT.substring(1) + URL);
+        int statusCode = getResponseCode(testPath, "GET", new PasswordAuthentication("admin", "admin".toCharArray()));
         assertEquals(200, statusCode);
     }
-
-
 }
