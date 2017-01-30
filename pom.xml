@@ -13,6 +13,7 @@
 
     <modules>
         <module>custom-authentication</module>
+        <module>embedded-authentication</module>
         <module>rest</module>
         <module>test-util</module>
     </modules>

@@ -23,7 +23,7 @@ public class EndpointIT {
 
     @Deployment(testable = false)
     public static WebArchive createDeployment() {
-        return wrap(Endpoint.class, RestApplication.class);
+        return wrap(Endpoint.class, RestApplication.class, SecurityConfig.class);
     }
 
     @Test
