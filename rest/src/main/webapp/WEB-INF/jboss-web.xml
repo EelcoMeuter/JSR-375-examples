@@ -2,5 +2,5 @@
 
 <jboss-web>
     <!--crucial link to (default) security-domain in standalone.xml-->
-    <!--<security-domain>jaspitest</security-domain>-->
+    <security-domain>jaspitest</security-domain>
 </jboss-web>

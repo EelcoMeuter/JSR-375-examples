@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
 import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
-import static org.nljug.jcp.jsr375.rest.Endpoint.*;
-import static org.nljug.jcp.jsr375.rest.RestApplication.*;
+import static org.nljug.jcp.jsr375.rest.Endpoint.URL;
+import static org.nljug.jcp.jsr375.rest.RestApplication.REST_ROOT;
 import static org.nljug.jcp.jsr375.test.util.HttpConnectionWrapper.getResponseCode;
 import static org.nljug.jcp.jsr375.test.util.MavenShrinkWrapper.wrap;
 
@@ -27,8 +27,15 @@ public class EndpointIT {
     }
 
     @Test
-    public void should_access_endpoint() throws Exception{
+    public void should_unauthenticate_endpoint() throws Exception {
         URL testPath = new URL(base.toExternalForm() + REST_ROOT.substring(1) + URL);
+        int statusCode = getResponseCode(testPath, "GET");
+        assertEquals(401, statusCode);
+    }
+
+    @Test
+    public void should_access_endpoint() throws Exception {
+        URL testPath = new URL(base.toExternalForm() + REST_ROOT.substring(1) + URL + "?username=admin&password=admin");
         int statusCode = getResponseCode(testPath, "GET");
         assertEquals(200, statusCode);
     }
