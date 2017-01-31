@@ -5,6 +5,8 @@ import java.net.Authenticator;
 import java.net.HttpURLConnection;
 import java.net.PasswordAuthentication;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 
 public class HttpConnectionWrapper {
 
@@ -27,4 +29,24 @@ public class HttpConnectionWrapper {
         });
         return getResponseCode(url, method);
     }
+
+    public static Map<String, List<String>> getResponseHeaders(URL url, String method, PasswordAuthentication
+            authentication)
+            throws IOException {
+        Authenticator.setDefault(new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return authentication;
+            }
+        });
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod(method);
+        connection.setDoOutput(true);
+        connection.connect();
+        Map<String, List<String>> headers = connection.getHeaderFields();
+        connection.disconnect();
+        return headers;
+
+    }
+
 }

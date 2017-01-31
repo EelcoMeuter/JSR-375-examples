@@ -10,9 +10,11 @@ import org.nljug.jcp.jsr375.web.TestServlet;
 
 import java.net.PasswordAuthentication;
 import java.net.URL;
-
-import static org.junit.Assert.assertEquals;
+import java.util.List;
+import java.util.Map;
+import static org.junit.Assert.*;
 import static org.nljug.jcp.jsr375.test.util.HttpConnectionWrapper.getResponseCode;
+import static org.nljug.jcp.jsr375.test.util.HttpConnectionWrapper.getResponseHeaders;
 import static org.nljug.jcp.jsr375.test.util.MavenShrinkWrapper.wrap;
 
 @RunWith(Arquillian.class)
@@ -39,6 +41,5 @@ public class SecurityConfigIT {
         int statusCode = getResponseCode(testPath, "GET", new PasswordAuthentication("admin", "admin".toCharArray()));
         assertEquals(200, statusCode);
     }
-
 
 }
