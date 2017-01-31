@@ -1,4 +1,4 @@
-package org.nljug.jcp.jsr375.rest;
+package org.nljug.jcp.jsr375.authentication;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -39,6 +39,4 @@ public class SecurityConfigIT {
         int statusCode = getResponseCode(testPath, "GET", new PasswordAuthentication("admin", "admin".toCharArray()));
         assertEquals(200, statusCode);
     }
-
-
 }

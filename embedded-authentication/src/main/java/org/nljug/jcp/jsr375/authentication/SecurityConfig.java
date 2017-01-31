@@ -1,4 +1,4 @@
-package org.nljug.jcp.jsr375.rest;
+package org.nljug.jcp.jsr375.authentication;
 
 import javax.security.authentication.mechanism.http.annotation.BasicAuthenticationMechanismDefinition;
 import javax.security.identitystore.annotation.Credentials;

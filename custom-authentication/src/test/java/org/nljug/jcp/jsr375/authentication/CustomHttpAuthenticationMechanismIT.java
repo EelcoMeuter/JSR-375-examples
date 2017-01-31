@@ -13,7 +13,7 @@ import java.net.URL;
 import static org.junit.Assert.assertEquals;
 import static org.nljug.jcp.jsr375.test.util.HttpConnectionWrapper.getResponseCode;
 import static org.nljug.jcp.jsr375.test.util.MavenShrinkWrapper.wrap;
-import static org.nljug.jcp.jsr375.test.web.TestServlet.*;
+import static org.nljug.jcp.jsr375.test.web.TestServlet.URL;
 
 @RunWith(Arquillian.class)
 public class CustomHttpAuthenticationMechanismIT {
@@ -54,5 +54,18 @@ public class CustomHttpAuthenticationMechanismIT {
         int statusCode = getResponseCode(testPath, "GET");
         assertEquals(401, statusCode);
     }
+
+    @Test
+    public void should_access_servlet_stateless() throws Exception {
+        String url = base.toExternalForm() + URL.substring(1) + "?username=admin&password=admin";
+        URL testPath = new URL(url);
+        int statusCode = getResponseCode(testPath, "GET");
+        assertEquals(200, statusCode);
+        url = base.toExternalForm() + URL.substring(1);
+        testPath = new URL(url);
+        statusCode = getResponseCode(testPath, "GET");
+        assertEquals(401, statusCode);
+    }
+
 
 }
