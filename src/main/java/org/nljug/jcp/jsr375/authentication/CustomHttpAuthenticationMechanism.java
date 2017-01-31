@@ -12,7 +12,6 @@ import javax.security.identitystore.credential.UsernamePasswordCredential;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static java.lang.System.out;
 import static javax.security.identitystore.CredentialValidationResult.Status.VALID;
 
 @RequestScoped
