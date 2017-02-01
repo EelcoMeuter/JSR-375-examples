@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <jboss-web>
-    <!--crucial link to (default) security-domain in standalone.xml-->
-    <security-domain>jaspitest</security-domain>
+    <!--crucial link to (default) jaspi security-domain in standalone.xml-->
 </jboss-web>

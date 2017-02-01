@@ -4,9 +4,9 @@ import javax.security.authentication.mechanism.http.annotation.BasicAuthenticati
 import javax.security.identitystore.annotation.Credentials;
 import javax.security.identitystore.annotation.EmbeddedIdentityStoreDefinition;
 
-@BasicAuthenticationMechanismDefinition(realmName = "test realm")
-@EmbeddedIdentityStoreDefinition(
-        { @Credentials(callerName = "admin", password = "admin", groups = { "role1" }) })
+/**
+ * Exercise 1: Implement the correct configuration for an embedded identity store
+ */
 public class SecurityConfig {
 
 }
