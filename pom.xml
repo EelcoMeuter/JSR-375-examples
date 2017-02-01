@@ -14,6 +14,7 @@
     <modules>
         <module>custom-authentication</module>
         <module>embedded-authentication</module>
+        <module>form-authentication</module>
         <module>test-util</module>
     </modules>
 
@@ -51,7 +52,7 @@
         <dependency>
             <groupId>org.glassfish.soteria</groupId>
             <artifactId>soteria</artifactId>
-            <version>1.0-m01</version>
+            <version>1.0-m02-SNAPSHOT</version>
         </dependency>
 
         <dependency>

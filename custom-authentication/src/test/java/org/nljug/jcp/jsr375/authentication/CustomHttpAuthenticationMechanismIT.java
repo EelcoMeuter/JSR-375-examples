@@ -56,7 +56,7 @@ public class CustomHttpAuthenticationMechanismIT {
     }
 
     @Test
-    public void should_access_servlet_stateless() throws Exception {
+    public void should_stateless_access() throws Exception {
         String url = base.toExternalForm() + URL.substring(1) + "?username=admin&password=admin";
         URL testPath = new URL(url);
         int statusCode = getResponseCode(testPath, "GET");
