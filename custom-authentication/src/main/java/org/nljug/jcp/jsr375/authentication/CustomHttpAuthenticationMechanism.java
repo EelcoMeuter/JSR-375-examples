@@ -6,36 +6,27 @@ import javax.security.auth.message.AuthException;
 import javax.security.auth.message.AuthStatus;
 import javax.security.authentication.mechanism.http.HttpAuthenticationMechanism;
 import javax.security.authentication.mechanism.http.HttpMessageContext;
-import javax.security.identitystore.CredentialValidationResult;
-import javax.security.identitystore.IdentityStore;
-import javax.security.identitystore.credential.UsernamePasswordCredential;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import static javax.security.identitystore.CredentialValidationResult.Status.VALID;
 
 @RequestScoped
 public class CustomHttpAuthenticationMechanism implements HttpAuthenticationMechanism {
 
     @Inject
-    private IdentityStore handler;
+    //FIXME
 
+    /**
+     * This method gets the username and password request parameters and validates them against the injected handler.
+     * The container is notified about the login via the httpMessageContext upon success.
+     * @param request
+     * @param response
+     * @param httpMessageContext
+     * @return
+     * @throws AuthException thrown when the authentication fails
+     */
     @Override
     public AuthStatus validateRequest(HttpServletRequest request, HttpServletResponse response,
             HttpMessageContext httpMessageContext) throws AuthException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        if (username == null || password == null) {
-            return httpMessageContext.responseUnAuthorized();
-        }
-
-        CredentialValidationResult validationResult = handler
-                .validate(new UsernamePasswordCredential(username, password));
-        if (validationResult.getStatus() != (VALID)) {
-            throw new AuthException(" authentication failed");
-        }
-        return httpMessageContext
-                .notifyContainerAboutLogin(validationResult.getCallerPrincipal(), validationResult.getCallerGroups());
+        //FIXME
     }
 }
