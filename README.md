@@ -18,5 +18,4 @@ These applications are provided on a USB stick during the workshop.
 - Wildfly
 
 ## Exercises
-The exercises are in the branches named 'exercise-#'. The solutions are in the master branch for further reference.
-The aim is to make the tests work again.
+Exercise 2: Implement the correct configuration for an custom identity store, see CustomHttpAuthenticationMechanism.java and CustomIdentityStore.java
