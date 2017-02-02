@@ -4,9 +4,14 @@ import javax.security.authentication.mechanism.http.annotation.FormAuthenticatio
 import javax.security.authentication.mechanism.http.annotation.LoginToContinue;
 import javax.security.identitystore.annotation.Credentials;
 import javax.security.identitystore.annotation.EmbeddedIdentityStoreDefinition;
+import javax.security.identitystore.annotation.LdapIdentityStoreDefinition;
 
 @FormAuthenticationMechanismDefinition(loginToContinue = @LoginToContinue(loginPage = "/login.xhtml", errorPage = ""))
-@EmbeddedIdentityStoreDefinition({ @Credentials(callerName = "admin", password = "admin", groups = { "role1" }) })
+@LdapIdentityStoreDefinition(
+        url = "ldap://localhost:33389/",
+        callerBaseDn = "ou=caller,dc=jsr375,dc=net",
+        groupBaseDn  = "ou=group,dc=jsr375,dc=net"
+)
 public class SecurityConfig {
 
 }
