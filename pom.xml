@@ -12,8 +12,6 @@
     </properties>
 
     <modules>
-        <module>custom-authentication</module>
-        <module>embedded-authentication</module>
         <module>form-authentication</module>
         <module>test-util</module>
     </modules>
