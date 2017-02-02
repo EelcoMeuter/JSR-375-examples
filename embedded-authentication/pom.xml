@@ -13,7 +13,7 @@
         <dependency>
             <groupId>org.nljug.jcp.jsr375</groupId>
             <artifactId>test-util</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version} </version>
             <scope>test</scope>
         </dependency>
     </dependencies>
