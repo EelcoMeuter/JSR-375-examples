@@ -21,9 +21,9 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <id>bintray-javaee-security-maven</id>
-            <name>bintray</name>
-            <url>https://dl.bintray.com/javaee-security-spec/maven</url>
+            <id>bintray-snapshot</id>
+            <name>libs-snapshot</name>
+            <url>http://oss.jfrog.org/artifactory/libs-snapshot</url>
         </repository>
     </repositories>
 
